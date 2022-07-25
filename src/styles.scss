@@ -1,1 +1,140 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+@import "themes/theme.scss";
+
+
+//theme colors
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--secondary_font);
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: var(--primary_font);
+  font-size: var(--size);
+  background-color: #F0F3F8;
+}
+
+p,
+a,
+li,
+ul,
+span,
+button,
+input,
+textarea,
+small {
+  font-family: var(--secondary_font);
+  font-size: 15px;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #4F6080;
+  transition: all 0.105s ease-in-out;
+
+  &:hover {
+    color: #4F6080;
+    font-weight: bolder;
+    transition: all 0.105s ease-in-out;
+  }
+
+  &.active {
+    color: #4F6080;
+
+  }
+}
+
+
+.ngx-slider .ngx-slider-bar {
+  background: #ccc !important;
+  height: 7px !important;
+}
+
+.ngx-slider .ngx-slider-selection {
+  background: #FE7D38 !important;
+}
+
+.ngx-slider .ngx-slider-pointer {
+  width: 8px;
+  height: 16px;
+  top: auto; /* to remove the default positioning */
+  bottom: 0;
+  background-color: #fff !important;
+  border: 1px solid #FE7D38 !important;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  &:after {
+    background: #FE7D38 !important;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+
+span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-high:before {
+  height: 10px !important;
+  content: 'USD' !important;
+  margin-right: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-value:after {
+  height: 10px !important;
+  content: 'USD' !important;
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.form-check-label {
+  font-family: var(--secondary_font) !important;
+  font-size: 0.98rem;
+  color: var(--primary-color);
+}
+
+.form-check-input[type=checkbox] {
+  border-radius: 2px !important;
+  border: 1px solid #B8C6DC;
+  height: 1rem;
+  width: 1rem;
+  &:checked {
+    background-color: #FE7D38;
+    border: 1px solid #FE7D38;
+  }
+
+  &:focus {
+    box-shadow: none;
+    border-color: #FE7D38;
+  }
+
+}
+
+.form-check-input[type=radio]{
+  &:checked {
+    background-color: #FE7D38;
+    border: 1px solid #FE7D38;
+  }
+
+  &:focus {
+    box-shadow: none;
+    border-color: #FE7D38;
+  }
+}

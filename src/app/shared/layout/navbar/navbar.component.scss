@@ -1,0 +1,55 @@
+.navbar {
+  padding: 16px 20px;
+  background-color: #fff;
+  .navbar-brand {
+    width: 15%;
+    img {
+      max-width: 120px;
+    }
+    h2 {
+      font-size: 19px;
+      font-weight: bold;
+    }
+  }
+}
+
+.navbar-nav {
+  width: 60%;
+  @media(max-width: 1440px){
+    width:auto
+  }
+  .nav-item{
+    margin:0 10px;
+    .nav-link{
+      font-size: 14px;
+      color: #4F6080;
+      transition: all 0.105s ease-in-out;
+      &.active {
+        font-weight: bolder;
+        border-bottom: 1px solid #4F6080;
+      }
+    }
+  }
+}
+
+
+.profile {
+  .dropdown {
+    a {
+      height: 30px;
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        border-radius: 50%;
+      }
+      p{
+        font-size:16px;
+        margin-left:15px;
+      }
+    }
+  }
+}
+.dropdown-menu{
+  right: 0;
+  left:auto;
+}

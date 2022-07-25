@@ -1,0 +1,104 @@
+<div class="container-fluid px-5">
+  <div class="row">
+    <div class="col-12">
+      <span class="resetFilter d-block text-end">
+        <a (click)="resetValues()">Reset All</a>
+      </span>
+
+      <!--Rate Range-->
+      <div class="mb-4">
+        <a class="d-block fw-bold d-flex justify-content-between" (click)="isCollapsed = !isCollapsed"
+           [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+          Average Day Rate
+          <span>
+          <i *ngIf="isCollapsed" class="fa fa-chevron-down fa-1x" aria-hidden="true"> </i>
+          <i *ngIf="!isCollapsed" class="fa fa-chevron-up fa-1x" aria-hidden="true"> </i>
+          </span>
+        </a>
+        <hr>
+        <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
+          <ngx-slider (valueChange)="onChangeFilters()" [(value)]="slider.minValue" [(highValue)]="slider.maxValue"
+                      [options]="slider.options"></ngx-slider>
+        </div>
+      </div>
+
+      <!--Air Condition state-->
+      <div class="mb-4">
+        <a class="d-block fw-bold d-flex justify-content-between" (click)="isCollapsed2 = !isCollapsed2"
+           [attr.aria-expanded]="!isCollapsed2" aria-controls="collapseBasic2">
+          Air Conditioning
+          <span>
+          <i *ngIf="isCollapsed2" class="fa fa-chevron-down fa-1x" aria-hidden="true"> </i>
+          <i *ngIf="!isCollapsed2" class="fa fa-chevron-up fa-1x" aria-hidden="true"> </i>
+          </span>
+        </a>
+        <hr>
+        <div id="collapseBasic2" [collapse]="isCollapsed2" [isAnimated]="true">
+
+          <div class="form-check">
+            <input #checkboxes class="form-check-input" type="checkbox" name="state1" id="exampleRadios1" [value]="'yes'"
+                   (change)="onChangeFilters($event,'airCondition')">
+            <label class="form-check-label" for="exampleRadios1">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input #checkboxes class="form-check-input" type="checkbox" name="state2" id="exampleRadios2" [value]="'no'"
+                    (change)="onChangeFilters($event,'airCondition')">
+            <label class="form-check-label" for="exampleRadios2">
+              No
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!--cities option-->
+      <div class="mb-4">
+        <a class="d-block fw-bold d-flex justify-content-between" (click)="isCollapsed4 = !isCollapsed4"
+           [attr.aria-expanded]="!isCollapsed4" aria-controls="collapseBasic4">
+          City
+          <span>
+          <i *ngIf="isCollapsed4" class="fa fa-chevron-down fa-1x" aria-hidden="true"> </i>
+          <i *ngIf="!isCollapsed4" class="fa fa-chevron-up fa-1x" aria-hidden="true"> </i>
+          </span>
+        </a>
+        <hr>
+        <div id="collapseBasic4" [collapse]="isCollapsed4" [isAnimated]="true">
+          <div *ngFor="let option of citiesList;let i = index" class="form-check">
+            <input #checkboxes class="form-check-input" type="checkbox" [value]="option" [id]="option"
+                   (change)="onChangeFilters($event,'cities')"
+            >
+            <label class="form-check-label" [for]="option">
+              {{option}}
+            </label>
+          </div>
+          <a (click)="seeMore(citiesOption,4,'cities')">{{citiesSeeMore ? 'Show All' : 'Show Less'}}</a>
+        </div>
+      </div>
+
+      <!--  Shifter Types-->
+      <div class="mb-4">
+        <a class="d-block fw-bold d-flex justify-content-between" (click)="isCollapsed3 = !isCollapsed3"
+           [attr.aria-expanded]="!isCollapsed3" aria-controls="collapseBasic3">
+          <span>Shift Type</span>
+          <span>
+          <i *ngIf="isCollapsed3" class="fa fa-chevron-down fa-1x" aria-hidden="true"> </i>
+          <i *ngIf="!isCollapsed3" class="fa fa-chevron-up fa-1x" aria-hidden="true"> </i>
+          </span>
+        </a>
+        <hr>
+        <div id="collapseBasic3" [collapse]="isCollapsed3" [isAnimated]="true">
+          <div *ngFor="let option of shiftingList;let i =index" class="form-check">
+            <input class="form-check-input" type="checkbox" [value]="option" [id]="option"
+                   (change)="onChangeFilters($event,'shifters')"
+            >
+            <label class="form-check-label" [for]="option">
+              {{option}}
+            </label>
+          </div>
+          <a (click)="seeMore(shiftingSystem,4,'shifters')">{{shiftersSeeMore ? 'Show All' : 'Show Less'}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

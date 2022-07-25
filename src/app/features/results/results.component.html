@@ -1,0 +1,75 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 mb-3 px-4 py-2 d-flex justify-content-between breadcrumb">
+      <div>
+        <h6 class="mb-0">{{route === 'plan-trip' ? 'Results' : null}} Page</h6>
+      </div>
+      <div>
+        <button (click)="addNewCar()">ADD CAR</button>
+      </div>
+    </div>
+
+    <div class="col-12 d-lg-none">
+      <app-side-filters (filters)="filtersData($event)"></app-side-filters>
+    </div>
+    <div class="col-3 d-none d-lg-block">
+      <app-side-filters (filters)="filtersData($event)"></app-side-filters>
+    </div>
+    <div class="col-12 col-lg-9">
+
+      <div class="sortable d-inline-block my-3">
+        <div class=" sortableContainer d-flex align-items-center">
+          <p class="mb-0 text-nowrap">Sort By</p>
+          <select class="form-select d-inline-block w-auto" aria-label="Default select" (change)="sortData()"
+                  [(ngModel)]="sortType">
+            <option value="highToLow">Price (high to low)</option>
+            <option value="lowToHigh">Price (low to high)</option>
+            <option value="AtoZ">A to Z (alphabetically)</option>
+            <option value="ZtoA">Z to A (alphabetically)</option>
+          </select>
+        </div>
+      </div>
+
+      <div *ngFor="let car of carData"
+           class="car d-flex flex-column flex-lg-row justify-content-between">
+        <div class=" d-flex flex-column flex-lg-row align-items-center ps-4  w-100">
+          <img class="w-100" [src]="car.image" alt="">
+          <div class="info d-flex mr-2">
+            <div class="d-flex flex-column">
+              <h4 class="ms-0 ms-lg-4">{{car.name}}</h4>
+              <ul class="features align-items-start d-flex flex-column align-items-baseline flex-lg-row ms-0 ms-lg-4">
+                <li class="my-3">
+                  <i-bs name="geo-fill"
+                        width="20"
+                        height="20">
+                  </i-bs>
+                  {{car.features.shifting}}
+                </li>
+                <li *ngIf="car.features.airCondition" class="m-3">
+                  <i-bs name="fan"
+                        width="20"
+                        height="20">
+                  </i-bs>
+                  Air Conditioning
+                </li>
+              </ul>
+              <div class="location d-flex ms-0 ms-lg-4 align-items-baseline">
+                <i-bs name="geo-alt-fill"
+                      width="20"
+                      height="20">
+                </i-bs>
+                <p class="d-flex mb-0 ms-2 align-items-center">City : <span>{{car.city}}</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="priceContainer text-center mt-3 mt-lg-0  p-5">
+          <p class="dailyRate">Daily Rate</p>
+          <p class="price fw-bolder">USD <span class="ms-1">{{car.dailyRate|number:'1.2'}}</span></p>
+          <button class="details">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
